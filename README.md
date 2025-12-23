@@ -9,7 +9,6 @@ Avenue is a modern social media mobile application inspired by the golden era of
 - **Inner Circle**: Designed for your closest 150 friends.
 - **Emotional Expressiveness**: Custom Avenue Emojis for nuanced reactions.
 - **Smart Journaling**: Share thoughts, music, photos, places, and sleep patterns.
-- **No-Build Architecture**: Uses ES modules and `esm.sh` for instant loading without complex build steps.
 
 ## 🚀 Deployment
 
@@ -17,16 +16,16 @@ Avenue is a modern social media mobile application inspired by the golden era of
 
 1. Push this repository to GitHub.
 2. Connect your GitHub account to [Vercel](https://vercel.com).
-3. Select this project and click **Deploy**.
-4. Vercel will automatically detect the static structure and serve `index.html`.
+3. Vercel will detect the project as a Vite app.
+4. Set the **Build Command** to `npm run build` and the **Output Directory** to `dist`.
+5. Click **Deploy**.
 
 ### Local Development
 
-Since this project uses native ESM:
-
 1. Clone the repo.
-2. Serve the directory using any static server (e.g., `npx serve .`).
-3. Open `localhost:3000`.
+2. Run `npm install`.
+3. Run `npm run dev`.
+4. Open `localhost:3000`.
 
 ## 🛡️ Privacy & Compliance
 
