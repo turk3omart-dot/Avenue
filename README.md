@@ -1,20 +1,40 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
 
-# Run and deploy your AI Studio app
+# Avenue — Intimate Social Networking
 
-This contains everything you need to run your app locally.
+Avenue is a modern social media mobile application inspired by the golden era of **Path (2010–2015)**. It prioritizes intimacy, emotional design, and high-quality "Moments" over the noise of traditional social networks.
 
-View your app in AI Studio: https://ai.studio/apps/drive/1BETWl8lBEt0Co1IE70W8Nf1h40c3gszm
+## ✨ Features
 
-## Run Locally
+- **(Moments) Timeline**: A beautiful, vertical narrative of your day.
+- **Inner Circle**: Designed for your closest 150 friends.
+- **Emotional Expressiveness**: Custom Avenue Emojis for nuanced reactions.
+- **Smart Journaling**: Share thoughts, music, photos, places, and sleep patterns.
+- **No-Build Architecture**: Uses ES modules and `esm.sh` for instant loading without complex build steps.
 
-**Prerequisites:**  Node.js
+## 🚀 Deployment
 
+### Deploy to Vercel
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+1. Push this repository to GitHub.
+2. Connect your GitHub account to [Vercel](https://vercel.com).
+3. Select this project and click **Deploy**.
+4. Vercel will automatically detect the static structure and serve `index.html`.
+
+### Local Development
+
+Since this project uses native ESM:
+
+1. Clone the repo.
+2. Serve the directory using any static server (e.g., `npx serve .`).
+3. Open `localhost:3000`.
+
+## 🛡️ Privacy & Compliance
+
+Avenue is built with Apple's App Store safety guidelines in mind:
+- **Zero Tolerance for UGC Abuse**: Robust reporting and blocking tools.
+- **Secure Network**: Data is shared only with your approved Circle.
+- **Privacy First**: No tracking across other apps or sales of personal metadata.
+
+---
+
+*Inspired by the minimalist and emotional design of Path.*
