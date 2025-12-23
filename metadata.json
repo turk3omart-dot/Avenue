@@ -1,0 +1,8 @@
+{
+  "name": "Avenue",
+  "description": "An intimate, journal-style social network inspired by the minimalist and emotional design of Path (2010-2015).",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ]
+}
