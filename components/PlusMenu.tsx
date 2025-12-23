@@ -20,11 +20,12 @@ const PlusMenu: React.FC<PlusMenuProps> = ({ onSelect }) => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50">
+    <div className="fixed bottom-[26px] left-1/2 -translate-x-1/2 z-[110]">
       {/* Overlay for closing */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm transition-opacity"
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm transition-opacity duration-300 z-[-1]"
+          style={{ width: '100vw', height: '100vh', left: '-50vw', top: '-100vh' }}
           onClick={toggleMenu}
         />
       )}
@@ -34,12 +35,12 @@ const PlusMenu: React.FC<PlusMenuProps> = ({ onSelect }) => {
         {menuItems.map((item, index) => {
           // Spread items in a semi-circle around the button
           const totalItems = menuItems.length;
-          const startAngle = 180; // Start from top-left
-          const endAngle = 360;   // End at top-right
+          const startAngle = 200; // Adjusted for a nice arc
+          const endAngle = 340;   
           const angleStep = (endAngle - startAngle) / (totalItems - 1);
           const angle = (startAngle + (index * angleStep)) * (Math.PI / 180);
           
-          const radius = isOpen ? 100 : 0;
+          const radius = isOpen ? 110 : 0;
           const x = Math.cos(angle) * radius;
           const y = Math.sin(angle) * radius;
 
@@ -50,12 +51,15 @@ const PlusMenu: React.FC<PlusMenuProps> = ({ onSelect }) => {
                 onSelect(item.type);
                 setIsOpen(false);
               }}
-              className={`absolute transition-all duration-300 ease-out flex items-center justify-center w-12 h-12 rounded-full shadow-lg text-white ${item.color} ${isOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}
+              className={`absolute transition-all duration-500 cubic-bezier(0.175, 0.885, 0.32, 1.275) flex flex-col items-center gap-1 group ${isOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}
               style={{
                 transform: `translate(${x}px, ${y}px)`,
               }}
             >
-              <item.icon size={20} />
+              <div className={`w-12 h-12 rounded-full shadow-xl text-white ${item.color} flex items-center justify-center border-2 border-white/20 active:scale-90 transition-transform`}>
+                <item.icon size={20} />
+              </div>
+              <span className="text-[8px] font-bold text-white uppercase tracking-widest drop-shadow-md">{item.label}</span>
             </button>
           );
         })}
@@ -63,9 +67,9 @@ const PlusMenu: React.FC<PlusMenuProps> = ({ onSelect }) => {
         {/* The Main Button */}
         <button
           onClick={toggleMenu}
-          className={`relative z-10 flex items-center justify-center w-14 h-14 rounded-full shadow-xl transition-all duration-300 bg-[#D64545] text-white ${isOpen ? 'rotate-45 scale-110' : 'rotate-0'}`}
+          className={`relative z-10 flex items-center justify-center w-14 h-14 rounded-full shadow-[0_8px_25px_-5px_rgba(214,69,69,0.5)] transition-all duration-500 bg-[#D64545] text-white border-2 border-white/30 ${isOpen ? 'rotate-[135deg] scale-110 shadow-none' : 'rotate-0 hover:scale-105 active:scale-95'}`}
         >
-          <Plus size={32} />
+          <Plus size={32} strokeWidth={2.5} />
         </button>
       </div>
     </div>
